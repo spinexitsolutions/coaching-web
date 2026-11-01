@@ -93,7 +93,7 @@ export function AdmissionPopup({ settings, courses }: { settings: Settings; cour
             <div className="relative hidden md:block">
               {popup.image && <Image src={popup.image} alt="" fill sizes="400px" className="object-cover" />}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              <p className="serif absolute bottom-6 left-6 right-6 text-3xl leading-tight text-white">{settings.brand.tagline}</p>
+              <p className="display absolute bottom-6 left-6 right-6 text-2xl text-white">{settings.brand.tagline}</p>
             </div>
             <div className="p-6 md:p-8">
               <button onClick={() => setOpen(false)} aria-label="Close" className="absolute right-4 top-4 grid size-9 place-items-center rounded-full bg-black/5 transition hover:bg-black/10">

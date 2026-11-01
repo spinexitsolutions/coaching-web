@@ -82,9 +82,9 @@ export function Navbar({ settings, featured }: { settings: Settings; featured?: 
                 <motion.div
                   key="full"
                   layout="position"
-                  initial={{ opacity: 0, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, filter: "blur(6px)", transition: { duration: 0.15 } }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, transition: { duration: 0.15 } }}
                   transition={{ duration: 0.35, delay: 0.08 }}
                   className="flex h-14 items-center gap-2 pl-2 pr-2"
                 >
@@ -121,9 +121,9 @@ export function Navbar({ settings, featured }: { settings: Settings; featured?: 
                 <motion.div
                   key="compact"
                   layout="position"
-                  initial={{ opacity: 0, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, filter: "blur(6px)", transition: { duration: 0.15 } }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, transition: { duration: 0.15 } }}
                   transition={{ duration: 0.35, delay: 0.08 }}
                   className="flex h-[52px] items-center gap-2 pl-1.5 pr-1.5"
                 >
@@ -155,8 +155,8 @@ export function Navbar({ settings, featured }: { settings: Settings; featured?: 
                       {[{ label: "Home", href: "/" }, ...nav.links].map((l, i) => (
                         <motion.li
                           key={l.href}
-                          initial={{ opacity: 0, y: 24, filter: "blur(6px)" }}
-                          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                          initial={{ opacity: 0, y: 24 }}
+                          animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, ease: EASE, delay: 0.12 + i * 0.035 }}
                         >
                           <Link
@@ -167,13 +167,13 @@ export function Navbar({ settings, featured }: { settings: Settings; featured?: 
                             <span className="eyebrow w-6 text-white/35">{String(i + 1).padStart(2, "0")}</span>
                             <span
                               className={cn(
-                                "text-[clamp(1.6rem,5.5vw,2.4rem)] font-semibold leading-none tracking-[-0.035em] transition-all duration-500 group-hover:translate-x-2 group-hover:text-accent",
+                                "text-[clamp(1.6rem,5.5vw,2.4rem)] font-semibold leading-none tracking-[-0.035em] transition-all duration-500 group-hover:translate-x-2 group-hover:text-accent2",
                                 isActive(l.href) ? "text-white" : "text-white/80",
                               )}
                             >
                               {l.label}
                             </span>
-                            <ArrowUpRight className="ml-auto size-5 -translate-x-2 text-accent opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100" />
+                            <ArrowUpRight className="ml-auto size-5 -translate-x-2 text-accent2 opacity-0 transition-all duration-500 group-hover:translate-x-0 group-hover:opacity-100" />
                           </Link>
                         </motion.li>
                       ))}
@@ -192,7 +192,7 @@ export function Navbar({ settings, featured }: { settings: Settings; featured?: 
                           <div className="absolute inset-x-0 bottom-0 p-5">
                             <span className="eyebrow rounded-full bg-white/15 px-2.5 py-1 text-white/90 backdrop-blur">Featured · {featured.category}</span>
                             <p className="mt-3 text-2xl font-semibold tracking-tight">{featured.title}</p>
-                            <p className="serif text-lg text-white/70">{featured.tagline}</p>
+                            <p className="text-[15px] text-white/70">{featured.tagline}</p>
                           </div>
                         </Link>
                       )}
@@ -208,10 +208,10 @@ export function Navbar({ settings, featured }: { settings: Settings; featured?: 
                       </Link>
                       <div className="grid grid-cols-2 gap-2 text-sm">
                         <a href={`tel:${brand.phone.replace(/\s/g, "")}`} className="flex items-center gap-2 rounded-[14px] bg-white/[0.06] px-3 py-3 text-white/80 transition hover:bg-white/10">
-                          <Phone className="size-4 text-accent" /> Call us
+                          <Phone className="size-4 text-accent2" /> Call us
                         </a>
                         <a href={`mailto:${brand.email}`} className="flex items-center gap-2 rounded-[14px] bg-white/[0.06] px-3 py-3 text-white/80 transition hover:bg-white/10">
-                          <Mail className="size-4 text-accent" /> Email
+                          <Mail className="size-4 text-accent2" /> Email
                         </a>
                       </div>
                       <div className="flex gap-2">
@@ -246,8 +246,8 @@ export function Navbar({ settings, featured }: { settings: Settings; featured?: 
 function Logo({ brand, short, expanded }: { brand: string; short: string; expanded?: boolean }) {
   return (
     <Link href="/" className="flex shrink-0 items-center gap-2.5 pr-1" aria-label={brand}>
-      <span className="relative grid size-10 place-items-center overflow-hidden rounded-full bg-white text-ink">
-        <span className="serif text-[22px] leading-none">{short.charAt(0)}</span>
+      <span className="relative grid size-10 place-items-center overflow-hidden rounded-full bg-accent2 text-ink">
+        <span className="wide text-[19px] font-[800] leading-none">{short.charAt(0)}</span>
         <span className="absolute right-[7px] top-[7px] size-1.5 rounded-full bg-accent" />
       </span>
       <span className="text-[15px] font-semibold tracking-[-0.02em]">

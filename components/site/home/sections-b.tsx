@@ -36,14 +36,14 @@ export function Results({ results }: { results: Result[] }) {
             </div>
             <div className="flex flex-col justify-between gap-10 p-7 md:p-12">
               <div>
-                <span className="eyebrow rounded-full bg-accent px-3 py-1.5">{top.exam} · {top.year}</span>
+                <span className="eyebrow rounded-full bg-accent2 px-3 py-1.5 text-ink">{top.exam} · {top.year}</span>
                 <p className="mt-8 text-[clamp(5rem,13vw,11rem)] font-semibold leading-[0.85] tracking-[-0.06em]">
                   {top.rank.split(" ")[0]}
-                  <span className="serif ml-3 font-normal text-accent">{top.rank.split(" ").slice(1).join(" ")}</span>
+                  <span className="ml-3 text-accent2">{top.rank.split(" ").slice(1).join(" ")}</span>
                 </p>
               </div>
               <div>
-                <Quote className="size-8 text-accent" />
+                <Quote className="size-8 text-accent2" />
                 <p className="mt-3 text-2xl font-medium leading-snug tracking-tight md:text-3xl">&ldquo;{top.quote}&rdquo;</p>
                 <p className="mt-5 text-white/60">
                   {top.name} · Score {top.score}
@@ -62,7 +62,7 @@ export function Results({ results }: { results: Result[] }) {
                 <Image src={r.image} alt={r.name} fill sizes="64px" className="object-cover grayscale transition duration-500 group-hover:grayscale-0" />
               </span>
               <div className="min-w-0">
-                <p className="text-2xl font-semibold leading-none tracking-tight text-accent">{r.rank}</p>
+                <p className="text-2xl font-semibold leading-none tracking-tight text-accent2">{r.rank}</p>
                 <p className="mt-1.5 truncate text-sm font-medium">{r.name}</p>
                 <p className="text-xs text-white/50">
                   {r.exam} {r.year}
@@ -182,7 +182,7 @@ function StackCard({ t, i, total }: { t: Testimonial; i: number; total: number }
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const scale = useTransform(scrollYProgress, [0, 1], [1, i === total - 1 ? 1 : 0.9]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, i === total - 1 ? 1 : 0.4]);
-  const colors = ["bg-white", "bg-ink text-white", "bg-accent text-white", "bg-[#E9E7FF]"];
+  const colors = ["bg-white", "bg-ink text-white", "bg-accent text-white", "bg-accent2"];
   const isDark = i % 4 === 1 || i % 4 === 2;
   return (
     <div ref={ref} className="sticky mb-6 h-[min(70vh,520px)]" style={{ top: `calc(110px + ${i * 22}px)` }}>
@@ -206,7 +206,7 @@ function StackCard({ t, i, total }: { t: Testimonial; i: number; total: number }
           )}
           <div>
             <p className="font-semibold">{t.name}</p>
-            <p className={cn("serif text-lg", isDark ? "text-white/70" : "text-muted")}>{t.role}</p>
+            <p className={cn("text-[14px]", isDark ? "text-white/70" : "text-muted")}>{t.role}</p>
           </div>
         </div>
       </motion.div>
@@ -235,31 +235,25 @@ export function Scholarship({ settings }: { settings: Settings }) {
 
   return (
     <section id="scholarship" className="px-3 py-12 md:px-6">
-      <Reveal className="grain relative mx-auto max-w-[1400px] overflow-hidden rounded-[36px] bg-ink px-6 py-16 text-white md:px-16 md:py-24">
+      <Reveal className="relative mx-auto max-w-[1400px] overflow-hidden rounded-[36px] bg-accent px-6 py-16 text-white md:px-16 md:py-24">
         <motion.div
           aria-hidden
-          className="absolute -right-40 -top-40 size-[600px] rounded-full opacity-60 blur-[100px]"
-          style={{ background: "radial-gradient(circle, var(--accent), transparent 60%)" }}
-          animate={{ scale: [1, 1.2, 1], x: [0, -40, 0] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          aria-hidden
-          className="absolute -bottom-40 -left-20 size-[500px] rounded-full opacity-40 blur-[100px]"
-          style={{ background: "radial-gradient(circle, var(--accent-2), transparent 60%)" }}
-          animate={{ scale: [1.1, 1, 1.1], y: [0, -30, 0] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -right-24 -top-24 size-[420px] rounded-full border-[56px] border-accent2/90 md:size-[560px]"
+          initial={{ scale: 0.6, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.6, ease: EASE }}
         />
         <div className="relative grid items-end gap-12 lg:grid-cols-[1.2fr_1fr]">
           <div>
             <span className="eyebrow rounded-full bg-white/10 px-3 py-1.5 text-white/80">Up to {s.maxScholarship} scholarship</span>
             <h2 className="display mt-6 text-[clamp(2.6rem,7vw,6rem)]">
-              {s.title.split(" ").slice(0, -1).join(" ")} <span className="serif text-accent">{s.title.split(" ").slice(-1)}</span>
+              {s.title.split(" ").slice(0, -1).join(" ")} <span className="text-accent2">{s.title.split(" ").slice(-1)}</span>
             </h2>
             <p className="mt-5 max-w-lg text-lg text-white/70">{s.subtitle}</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Magnetic>
-                <Link href="/admissions#scholarship" className="group flex h-14 items-center gap-2 rounded-full bg-white px-7 font-semibold text-ink transition hover:bg-accent hover:text-white">
+                <Link href="/admissions#scholarship" className="group flex h-14 items-center gap-2 rounded-full bg-accent2 px-7 font-semibold text-ink transition hover:bg-white">
                   Register free <ArrowUpRight className="size-4 transition-transform group-hover:rotate-45" />
                 </Link>
               </Magnetic>
@@ -270,7 +264,7 @@ export function Scholarship({ settings }: { settings: Settings }) {
           </div>
           <div className="grid grid-cols-4 gap-2 md:gap-3">
             {parts.map(([label, v]) => (
-              <div key={label} className="rounded-2xl bg-white/[0.07] p-3 text-center ring-1 ring-white/10 backdrop-blur md:rounded-3xl md:p-5">
+              <div key={label} className="rounded-2xl bg-ink p-3 text-center md:rounded-3xl md:p-5">
                 <div className="relative h-[1.1em] overflow-hidden text-[clamp(2rem,6vw,4rem)] font-semibold leading-none tracking-[-0.05em] tabular-nums">
                   <AnimatePresence mode="popLayout" initial={false}>
                     <motion.span key={v} className="block" initial={{ y: "100%" }} animate={{ y: 0 }} exit={{ y: "-100%" }} transition={{ duration: 0.5, ease: EASE }}>

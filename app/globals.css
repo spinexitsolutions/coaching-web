@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, "SF Pro Display", sans-serif;
-  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: "Mona Sans Variable", ui-sans-serif, system-ui, -apple-system, "SF Pro Display", sans-serif;
+  --font-mono: "Mona Sans Variable", ui-sans-serif, system-ui, sans-serif;
 
   --color-paper: var(--paper);
   --color-ink: var(--ink);
@@ -18,12 +17,12 @@
 }
 
 :root {
-  --paper: #f6f5f1;
-  --ink: #0b0b0c;
-  --accent: #ff5b1f;
-  --accent-2: #5b5bf0;
-  --muted: #6e6e73;
-  --line: rgb(11 11 12 / 0.09);
+  --paper: #f2f2ee;
+  --ink: #0b0b10;
+  --accent: #2f3cff;
+  --accent-2: #d4ff3a;
+  --muted: #6b6b75;
+  --line: rgb(11 11 16 / 0.1);
   --card: #ffffff;
 }
 
@@ -52,8 +51,8 @@ html.lenis body {
 
 body {
   font-family: var(--font-sans);
-  font-feature-settings: "ss01", "cv11";
-  letter-spacing: -0.011em;
+  font-stretch: 100%;
+  letter-spacing: -0.012em;
 }
 
 ::selection {
@@ -61,24 +60,30 @@ body {
   color: white;
 }
 
+/* Accent words: same sans family, wide + heavy, coloured (no serif/italic). */
 .serif {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.01em;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-stretch: 125%;
+  font-weight: 760;
+  letter-spacing: -0.035em;
 }
 
 .display {
+  font-stretch: 125%;
   letter-spacing: -0.045em;
-  line-height: 0.95;
-  font-weight: 600;
+  line-height: 0.98;
+  font-weight: 760;
+}
+
+.wide {
+  font-stretch: 125%;
 }
 
 .eyebrow {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 @layer components {

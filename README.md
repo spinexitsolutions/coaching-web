@@ -1,6 +1,6 @@
 # Lumina Academy — Coaching Institute Website + Admin (CRM/CMS)
 
-A premium, animation-rich coaching institute website built with **Next.js 15 (App Router)**, **Tailwind CSS 4**, **Framer Motion** and **Lenis** smooth scroll — with a full **admin panel** that controls the entire site, plus a built-in **CRM** for admissions leads.
+A premium, animation-rich coaching institute website built with **Next.js 15 (App Router)**, **Mona Sans** (variable sans-serif), **Tailwind CSS 4**, **Framer Motion** and **Lenis** smooth scroll — with a full **admin panel** that controls the entire site, plus a built-in **CRM** for admissions leads.
 
 ## Quick start
 
@@ -22,12 +22,12 @@ On first run the database (`data/db.json`) is seeded automatically with demo con
 | --- | --- |
 | Intro animation | Full-screen word sequence + 000→100 counter, then a curved two-layer curtain wipe. Words, duration, colour, on/off and "once per visit" are set from the admin. |
 | Dynamic-Island navbar | Black floating pill that morphs (spring layout animation) from a full bar → compact island with live status ticker and a scroll-progress ring → an expanded menu card with a featured course. |
-| Hero | Word-by-word masked headline, magnetic buttons, then a scroll-driven stage where the classroom image un-clips to full-bleed while side cards drift away. |
+| Hero | Full-screen cobalt panel that opens from the centre after the intro, duotone classroom photo, wide display headline, swipeable auto-rotating deck of toppers (drag on mobile), spinning "Admissions open" sticker, animated stats strip, pointer parallax. |
 | Scroll effects | Manifesto paragraph that lights up word-by-word, horizontal-scroll program carousel (pinned), sticky stacking testimonials, parallax gallery columns, giant footer wordmark. |
 | Sections | Exam marquee, stats bento with counters, features bento (AI doubt demo, parent app, etc.), results & toppers, faculty, batches with seat bars, scholarship countdown, notices + blog, gallery, FAQ, demo-class form. |
 | Pages | Programs (filterable) & course detail, Results (filter by exam/year), Faculty, Admissions (process, fee table, scholarship registration), Resources/downloads, Blog & articles, Gallery (lightbox), About, Contact (map), 404. |
 | Conversion | Lead forms on every key page, timed admission popup, floating WhatsApp/Call buttons. Every submission lands in the CRM. |
-| Design | Mobile-first, Apple-inspired: Geist + Instrument Serif italics, generous whitespace, soft springs, `prefers-reduced-motion` respected. |
+| Design | Mobile-first, Apple-inspired: Mona Sans only (expanded width for headlines), cobalt + lime colour system, generous whitespace, soft springs, `prefers-reduced-motion` respected. |
 
 ## Admin panel
 

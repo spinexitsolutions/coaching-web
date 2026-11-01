@@ -167,7 +167,7 @@ export function Dashboard({ leads, counts, brand }: { leads: Lead[]; counts: { l
               <div key={s} className="flex items-center gap-3 text-[13px]">
                 <span className="w-32 truncate text-black/60">{s}</span>
                 <div className="h-6 flex-1 overflow-hidden rounded-md bg-black/[0.04]">
-                  <motion.div className="flex h-full items-center rounded-md bg-accent2/80 px-2 text-[11px] font-semibold text-white" initial={{ width: 0 }} animate={{ width: `${(n / m.sources[0][1]) * 100}%` }} transition={{ duration: 1, ease: EASE }}>
+                  <motion.div className="flex h-full items-center rounded-md bg-accent px-2 text-[11px] font-semibold text-white" initial={{ width: 0 }} animate={{ width: `${(n / m.sources[0][1]) * 100}%` }} transition={{ duration: 1, ease: EASE }}>
                     {n}
                   </motion.div>
                 </div>

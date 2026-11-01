@@ -10,7 +10,7 @@ export default async function Home() {
   const courseTitles = site.courses.map((c) => c.title);
 
   const render: Record<SectionId, () => React.ReactNode> = {
-    hero: () => <Hero settings={settings} topper={site.results[0]} avatars={site.results.map((r) => r.image)} />,
+    hero: () => <Hero settings={settings} toppers={site.results} />,
     marquee: () => <ExamMarquee />,
     manifesto: () => <Manifesto settings={settings} />,
     stats: () => <StatsBento settings={settings} image={site.gallery[0]?.image} />,

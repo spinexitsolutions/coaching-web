@@ -61,8 +61,8 @@ export function LeadForm({ courses, source, dark, compact, defaultCourse, submit
         {state === "done" ? (
           <motion.div
             key="done"
-            initial={{ opacity: 0, scale: 0.94, filter: "blur(8px)" }}
-            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            initial={{ opacity: 0, scale: 0.94 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className={cn("flex flex-col items-center justify-center rounded-3xl px-6 py-12 text-center", dark ? "bg-white/[0.05]" : "bg-white")}
           >

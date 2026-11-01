@@ -23,11 +23,11 @@ const TABS = [
 type Tab = (typeof TABS)[number]["id"];
 
 const PRESETS = [
-  { name: "Saffron", accent: "#FF5B1F", accent2: "#5B5BF0", ink: "#0B0B0C", paper: "#F6F5F1" },
-  { name: "Ocean", accent: "#0A84FF", accent2: "#30D158", ink: "#0A0F1A", paper: "#F4F6F9" },
-  { name: "Emerald", accent: "#10B981", accent2: "#F59E0B", ink: "#0B1210", paper: "#F3F6F2" },
-  { name: "Royal", accent: "#7C3AED", accent2: "#EC4899", ink: "#0E0B16", paper: "#F6F4FA" },
-  { name: "Crimson", accent: "#E11D48", accent2: "#0EA5E9", ink: "#120B0D", paper: "#F8F4F2" },
+  { name: "Cobalt & Lime", accent: "#2F3CFF", accent2: "#D4FF3A", ink: "#0B0B10", paper: "#F2F2EE" },
+  { name: "Forest & Mint", accent: "#0F5132", accent2: "#B8F5D0", ink: "#0A120E", paper: "#F1F3EF" },
+  { name: "Plum & Peach", accent: "#5B2A86", accent2: "#FFC9A8", ink: "#120B16", paper: "#F5F2F4" },
+  { name: "Ink & Coral", accent: "#111827", accent2: "#FF7A59", ink: "#0B0B0F", paper: "#F3F2EF" },
+  { name: "Teal & Sun", accent: "#006D77", accent2: "#FFD23F", ink: "#081315", paper: "#F1F4F3" },
 ];
 
 const ids = new WeakMap<object, string>();
@@ -128,7 +128,7 @@ export function SettingsEditor({ initial }: { initial: Settings }) {
               </Card>
               <Card className="grid gap-4 md:grid-cols-2">
                 {F("theme", { key: "accent", label: "Primary accent", type: "color" })}
-                {F("theme", { key: "accent2", label: "Secondary accent", type: "color" })}
+                {F("theme", { key: "accent2", label: "Highlight (buttons & accents on dark/brand panels)", type: "color" })}
                 {F("theme", { key: "ink", label: "Ink (text & dark sections)", type: "color" })}
                 {F("theme", { key: "paper", label: "Paper (background)", type: "color" })}
               </Card>
@@ -138,10 +138,13 @@ export function SettingsEditor({ initial }: { initial: Settings }) {
                   <p className="text-4xl font-semibold tracking-[-0.04em]">
                     Learn with <span className="serif" style={{ color: s.theme.accent }}>clarity.</span>
                   </p>
+                  <p className="mt-4 rounded-xl p-4 text-2xl font-semibold tracking-[-0.03em] text-white" style={{ background: s.theme.accent }}>
+                    Brand panel with <span style={{ color: s.theme.accent2 }}>highlight</span>
+                  </p>
                   <div className="mt-4 flex gap-2">
                     <span className="rounded-full px-4 py-2 text-sm font-semibold text-white" style={{ background: s.theme.ink }}>Primary</span>
                     <span className="rounded-full px-4 py-2 text-sm font-semibold text-white" style={{ background: s.theme.accent }}>Accent</span>
-                    <span className="rounded-full px-4 py-2 text-sm font-semibold text-white" style={{ background: s.theme.accent2 }}>Secondary</span>
+                    <span className="rounded-full px-4 py-2 text-sm font-semibold" style={{ background: s.theme.accent2, color: s.theme.ink }}>Highlight</span>
                   </div>
                 </div>
               </Card>
@@ -182,9 +185,9 @@ export function SettingsEditor({ initial }: { initial: Settings }) {
               {F("hero", { key: "primaryHref", label: "Primary button link", type: "text" })}
               {F("hero", { key: "secondaryCta", label: "Secondary button", type: "text" })}
               {F("hero", { key: "secondaryHref", label: "Secondary button link", type: "text" })}
-              {[0, 1, 2].map((i) => (
+              {[0].map((i) => (
                 <div key={i} className={i === 0 ? "md:col-span-2" : ""}>
-                  <span className="mb-1.5 block text-[12px] font-medium text-black/55">{i === 0 ? "Main image (expands on scroll)" : `Side image ${i}`}</span>
+                  <span className="mb-1.5 block text-[12px] font-medium text-black/55">Background photo (shown as a duotone behind the hero)</span>
                   <ImageInput value={s.hero.images[i] || ""} onChange={(v) => up("hero", { images: Object.assign([...s.hero.images], { [i]: v }) })} />
                 </div>
               ))}
@@ -335,7 +338,7 @@ function IntroPreview({ intro }: { intro: Settings["intro"] }) {
     <div className="relative grid aspect-video place-items-center overflow-hidden rounded-xl text-white" style={{ background: intro.background }}>
       <AnimatePresence mode="popLayout">
         {w ? (
-          <motion.span key={i} initial={{ y: 40, opacity: 0, filter: "blur(6px)" }} animate={{ y: 0, opacity: 1, filter: "blur(0px)" }} exit={{ y: -40, opacity: 0, filter: "blur(6px)" }} transition={{ duration: 0.5 }} className={cn("text-4xl font-semibold tracking-[-0.04em]", i === words.length - 1 && "serif font-normal text-accent")}>
+          <motion.span key={i} initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: -40, opacity: 0 }} transition={{ duration: 0.5 }} className={cn("text-4xl font-semibold tracking-[-0.04em]", i === words.length - 1 && "serif font-normal text-accent")}>
             {w}
           </motion.span>
         ) : (

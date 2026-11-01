@@ -19,10 +19,10 @@ export function Footer({ settings, courses }: { settings: Settings; courses: { t
       <div className="mx-auto max-w-[1400px] px-5 pt-24 md:px-10 md:pt-32">
         <div className="flex flex-col items-start justify-between gap-10 border-b border-white/10 pb-16 md:flex-row md:items-end">
           <h2 className="display max-w-3xl text-[clamp(2.6rem,7vw,5.5rem)]">
-            Your rank <span className="serif text-accent">starts</span> with one conversation.
+            Your rank <span className="serif text-accent2">starts</span> with one conversation.
           </h2>
           <Magnetic>
-            <Link href="/admissions" className="group grid size-36 place-items-center rounded-full bg-accent text-center text-sm font-semibold transition-transform duration-500 hover:scale-105 md:size-44">
+            <Link href="/admissions" className="group grid size-36 place-items-center rounded-full bg-accent2 text-center text-sm font-semibold text-ink transition-transform duration-500 hover:scale-105 md:size-44">
               <span className="flex flex-col items-center gap-1">
                 <ArrowUpRight className="size-6 transition-transform duration-500 group-hover:rotate-45" />
                 Start your
@@ -36,7 +36,7 @@ export function Footer({ settings, courses }: { settings: Settings; courses: { t
         <div className="grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
           <div>
             <p className="text-xl font-semibold tracking-tight">{brand.name}</p>
-            <p className="serif mt-1 text-xl text-white/60">{brand.tagline}</p>
+            <p className="mt-1 text-lg text-white/60">{brand.tagline}</p>
             <div className="mt-8 flex flex-wrap gap-2">
               {(["instagram", "youtube", "facebook", "linkedin"] as const)
                 .filter((k) => brand[k])
@@ -77,17 +77,17 @@ export function Footer({ settings, courses }: { settings: Settings; courses: { t
           <div>
             <p className="eyebrow mb-5 text-white/40">Visit us</p>
             <ul className="space-y-4 text-[15px] text-white/70">
-              <li className="flex gap-3"><MapPin className="mt-0.5 size-4 shrink-0 text-accent" />{brand.address}</li>
-              <li><a href={`tel:${brand.phone.replace(/\s/g, "")}`} className="flex gap-3 hover:text-white"><Phone className="mt-0.5 size-4 shrink-0 text-accent" />{brand.phone}</a></li>
-              <li><a href={`mailto:${brand.email}`} className="flex gap-3 hover:text-white"><Mail className="mt-0.5 size-4 shrink-0 text-accent" />{brand.email}</a></li>
-              <li className="flex gap-3"><Clock className="mt-0.5 size-4 shrink-0 text-accent" />{brand.hours}</li>
+              <li className="flex gap-3"><MapPin className="mt-0.5 size-4 shrink-0 text-accent2" />{brand.address}</li>
+              <li><a href={`tel:${brand.phone.replace(/\s/g, "")}`} className="flex gap-3 hover:text-white"><Phone className="mt-0.5 size-4 shrink-0 text-accent2" />{brand.phone}</a></li>
+              <li><a href={`mailto:${brand.email}`} className="flex gap-3 hover:text-white"><Mail className="mt-0.5 size-4 shrink-0 text-accent2" />{brand.email}</a></li>
+              <li className="flex gap-3"><Clock className="mt-0.5 size-4 shrink-0 text-accent2" />{brand.hours}</li>
             </ul>
           </div>
         </div>
       </div>
 
       <div className="relative select-none overflow-hidden" aria-hidden>
-        <motion.div style={{ y }} className="flex justify-center whitespace-nowrap px-2 text-[clamp(5rem,26vw,24rem)] font-semibold leading-[0.78] tracking-[-0.07em] text-white">
+        <motion.div style={{ y }} className="flex justify-center whitespace-nowrap px-2 text-[clamp(4rem,21vw,20rem)] wide font-[800] leading-[0.8] tracking-[-0.06em] text-white">
           {letters.map((l, i) => (
             <motion.span
               key={i}
@@ -95,7 +95,7 @@ export function Footer({ settings, courses }: { settings: Settings; courses: { t
               whileInView={{ y: "0%", opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: i * 0.06 }}
-              className={i === letters.length - 1 ? "serif font-normal text-accent" : ""}
+              className={i === letters.length - 1 ? "text-accent2" : ""}
             >
               {l}
             </motion.span>

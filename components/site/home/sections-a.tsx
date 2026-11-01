@@ -14,22 +14,26 @@ import { Counter, Reveal, SectionHeading, EASE } from "../motion";
 export function ExamMarquee() {
   const row1 = ["JEE Main", "JEE Advanced", "NEET UG", "BITSAT", "Olympiads", "NTSE", "CUET", "CBSE Boards"];
   const row2 = ["Small batches", "Weekly tests", "1:1 mentorship", "Doubt desk", "Parent app", "Printed modules", "Scholarships"];
-  const Row = ({ items, reverse, serif }: { items: string[]; reverse?: boolean; serif?: boolean }) => (
-    <div className="marquee-pause mask-fade-x flex overflow-hidden">
-      <div className={cn("flex shrink-0 items-center", reverse ? "animate-marquee-reverse" : "animate-marquee")} style={{ ["--marquee-duration" as string]: "45s" }}>
+  const Tape = ({ items, reverse, className, star }: { items: string[]; reverse?: boolean; className: string; star: string }) => (
+    <div className={cn("marquee-pause flex overflow-hidden py-4 md:py-5", className)}>
+      <div className={cn("flex shrink-0 items-center", reverse ? "animate-marquee-reverse" : "animate-marquee")} style={{ ["--marquee-duration" as string]: "38s" }}>
         {[...items, ...items, ...items, ...items].map((t, i) => (
           <span key={i} className="flex items-center">
-            <span className={cn("whitespace-nowrap px-6 text-[clamp(2rem,5vw,4rem)] tracking-[-0.04em]", serif ? "serif text-muted" : "font-semibold")}>{t}</span>
-            <span className="text-accent text-2xl">✦</span>
+            <span className="wide whitespace-nowrap px-5 text-[clamp(1.4rem,3.2vw,2.6rem)] font-[760] uppercase tracking-[-0.03em]">{t}</span>
+            <span className={cn("text-xl", star)}>✱</span>
           </span>
         ))}
       </div>
     </div>
   );
   return (
-    <section id="marquee" className="space-y-2 border-y border-line py-10 md:py-14">
-      <Row items={row1} />
-      <Row items={row2} reverse serif />
+    <section id="marquee" className="relative overflow-hidden py-16 md:py-24" aria-label="Exams we prepare for">
+      <div className="relative -mx-[5%] -rotate-[3deg]">
+        <Tape items={row1} className="bg-accent2 text-ink" star="text-accent" />
+      </div>
+      <div className="relative -mx-[5%] -mt-6 rotate-[2deg] md:-mt-8">
+        <Tape items={row2} reverse className="bg-ink text-white" star="text-accent2" />
+      </div>
     </section>
   );
 }
@@ -44,8 +48,8 @@ export function Manifesto({ settings }: { settings: Settings }) {
     <section id="manifesto" ref={ref} className="relative h-[220vh] md:h-[260vh]">
       <div className="sticky top-0 flex h-[100svh] items-center">
         <div className="mx-auto w-full max-w-[1200px] px-5 md:px-10">
-          <p className="eyebrow mb-8 flex items-center gap-2 text-muted">
-            <span className="inline-block size-1.5 rounded-full bg-accent" />
+          <p className="eyebrow mb-8 flex items-center gap-3 text-ink/70">
+            <span className="h-px w-10 bg-ink/40" />
             {settings.manifesto.label}
           </p>
           <p className="text-[clamp(1.8rem,4.6vw,4rem)] font-semibold leading-[1.08] tracking-[-0.035em]">
@@ -64,11 +68,10 @@ export function Manifesto({ settings }: { settings: Settings }) {
 function Word({ children, progress, range, highlight }: { children: string; progress: MotionValue<number>; range: [number, number]; highlight?: boolean }) {
   const start = range[0] * 0.85;
   const end = range[1] * 0.85;
-  const opacity = useTransform(progress, [start, end], [0.12, 1]);
-  const blur = useTransform(progress, [start, end], [4, 0]);
-  const filter = useTransform(blur, (b) => `blur(${b}px)`);
+  const opacity = useTransform(progress, [start, end], [0.14, 1]);
+  const y = useTransform(progress, [start, end], [6, 0]);
   return (
-    <motion.span style={{ opacity, filter }} className={cn("mr-[0.25em] inline-block", highlight && "serif font-normal text-accent")}>
+    <motion.span style={{ opacity, y }} className={cn("mr-[0.25em] inline-block", highlight && "serif text-accent")}>
       {children}
     </motion.span>
   );
@@ -91,7 +94,7 @@ export function StatsBento({ settings, image }: { settings: Settings; image?: st
               <p className="text-[clamp(4rem,11vw,8.5rem)] font-semibold leading-none tracking-[-0.06em]">
                 <Counter value={s[1]?.value || 0} suffix={s[1]?.suffix} />
               </p>
-              <p className="serif mt-2 text-2xl text-white/75">and every single one has a story.</p>
+              <p className="mt-2 text-lg text-white/75">and every single one has a story.</p>
             </div>
           </div>
         </Reveal>
@@ -114,7 +117,7 @@ export function StatsBento({ settings, image }: { settings: Settings; image?: st
                   <Counter value={s[3].value} suffix={s[3].suffix} />
                 </p>
                 <div className="mt-4 h-1.5 overflow-hidden rounded-full bg-paper">
-                  <motion.div className="h-full rounded-full bg-accent2" initial={{ width: 0 }} whileInView={{ width: `${s[3].value}%` }} viewport={{ once: true }} transition={{ duration: 2, ease: EASE }} />
+                  <motion.div className="h-full rounded-full bg-accent" initial={{ width: 0 }} whileInView={{ width: `${s[3].value}%` }} viewport={{ once: true }} transition={{ duration: 2, ease: EASE }} />
                 </div>
               </div>
             </div>
@@ -241,7 +244,7 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
       </div>
       <div className="flex flex-1 flex-col p-6">
         <h3 className="text-[28px] font-semibold leading-tight tracking-[-0.03em]">{c.title}</h3>
-        <p className="serif mt-1 text-xl text-muted">{c.tagline}</p>
+        <p className="mt-1 text-[15px] text-muted">{c.tagline}</p>
         <div className="mt-4 flex flex-wrap gap-1.5">
           {[c.classLevel, c.duration, c.mode].filter(Boolean).map((t) => (
             <span key={t} className="rounded-full bg-paper px-3 py-1 text-xs font-medium text-ink/70">
@@ -271,7 +274,7 @@ function AllCoursesCard() {
           <ArrowUpRight className="size-7 transition-transform duration-500 group-hover:rotate-45" />
         </span>
         <p className="mt-6 text-2xl font-semibold tracking-tight">View all programs</p>
-        <p className="serif text-lg text-muted">compare, filter, decide.</p>
+        <p className="text-[15px] text-muted">compare, filter, decide.</p>
       </div>
     </Link>
   );

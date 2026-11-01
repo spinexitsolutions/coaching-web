@@ -27,10 +27,10 @@ export function Reveal({
 }: { children: ReactNode; delay?: number; y?: number; once?: boolean } & HTMLMotionProps<"div">) {
   return (
     <motion.div
-      initial={{ opacity: 0, y, filter: "blur(8px)" }}
-      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      initial={{ opacity: 0, y }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once, margin: "-8% 0px" }}
-      transition={{ duration: 0.9, ease: EASE, delay }}
+      transition={{ duration: 1.1, ease: EASE, delay }}
       className={className}
       {...rest}
     >
@@ -68,9 +68,9 @@ export function SplitWords({
         <span key={i} aria-hidden className="inline-block overflow-hidden pb-[0.12em] -mb-[0.12em] align-bottom">
           <motion.span
             className={cn("inline-block will-change-transform", wordClassName)}
-            initial={{ y: "110%", rotate: 4 }}
-            animate={show ? { y: "0%", rotate: 0 } : undefined}
-            transition={{ duration: 1, ease: EASE, delay: delay + i * stagger }}
+            initial={{ y: "115%" }}
+            animate={show ? { y: "0%" } : undefined}
+            transition={{ duration: 1.15, ease: EASE, delay: delay + i * stagger }}
           >
             {w}
             {i < words.length - 1 ? " " : ""}
@@ -165,25 +165,25 @@ export function SectionHeading({
   dark?: boolean;
 }) {
   return (
-    <div className={cn(align === "center" && "text-center mx-auto", "max-w-3xl", className)}>
+    <div className={cn(align === "center" && "mx-auto text-center", "max-w-4xl", className)}>
       <Reveal>
-        <div className={cn("eyebrow mb-5 flex items-center gap-2", align === "center" && "justify-center", dark ? "text-white/60" : "text-muted")}>
-          <span className="inline-block size-1.5 rounded-full bg-accent" />
+        <div className={cn("eyebrow mb-6 flex items-center gap-3", align === "center" && "justify-center", dark ? "text-white/70" : "text-ink/70")}>
+          <span className={cn("h-px w-10", dark ? "bg-white/40" : "bg-ink/40")} />
           {eyebrow}
         </div>
       </Reveal>
-      <h2 className={cn("display text-[clamp(2.4rem,7vw,5.2rem)]", dark && "text-white")}>
+      <h2 className={cn("display text-[clamp(2.1rem,5.6vw,4.6rem)]", dark && "text-white")}>
         <SplitWords text={title} />
         {accent && (
           <>
             {" "}
-            <SplitWords text={accent} wordClassName="serif text-accent pr-[0.06em]" delay={0.15} />
+            <SplitWords text={accent} wordClassName={cn("serif pr-[0.04em]", dark ? "text-accent2" : "text-accent")} delay={0.12} />
           </>
         )}
         {after && (
           <>
             {" "}
-            <SplitWords text={after} delay={0.25} />
+            <SplitWords text={after} delay={0.2} />
           </>
         )}
       </h2>

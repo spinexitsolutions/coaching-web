@@ -115,12 +115,12 @@ function IntroOverlay({ intro, brand, onSkip }: { intro: Settings["intro"]; bran
               <motion.span
                 key={i}
                 className="block"
-                initial={{ y: "105%", filter: "blur(6px)" }}
-                animate={{ y: "0%", filter: "blur(0px)" }}
-                exit={{ y: "-105%", filter: "blur(6px)" }}
+                initial={{ y: "105%" }}
+                animate={{ y: "0%" }}
+                exit={{ y: "-105%" }}
                 transition={{ duration: 0.7, ease: EASE }}
               >
-                {i === words.length - 1 ? <span className="serif tracking-[-0.02em] text-accent">{words[i]}</span> : words[i]}
+                {i === words.length - 1 ? <span className="text-accent2">{words[i]}</span> : words[i]}
               </motion.span>
             </AnimatePresence>
           </div>

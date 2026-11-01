@@ -12,23 +12,19 @@ import { Reveal, SplitWords, EASE } from "./motion";
 export function PageHero({ eyebrow, title, accent, subtitle, children }: { eyebrow: string; title: string; accent?: string; subtitle?: string; children?: React.ReactNode }) {
   return (
     <section className="relative overflow-hidden px-5 pb-14 pt-32 md:px-10 md:pb-20 md:pt-44">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 [background-image:linear-gradient(var(--line)_1px,transparent_1px),linear-gradient(90deg,var(--line)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:radial-gradient(ellipse_at_top,black_10%,transparent_65%)]"
-      />
       <div className="relative mx-auto max-w-[1400px]">
         <Reveal>
-          <p className="eyebrow mb-6 flex items-center gap-2 text-muted">
-            <span className="inline-block size-1.5 rounded-full bg-accent" />
+          <p className="eyebrow mb-7 flex items-center gap-3 text-ink/70">
+            <span className="h-px w-10 bg-ink/40" />
             {eyebrow}
           </p>
         </Reveal>
-        <h1 className="display max-w-5xl text-[clamp(2.8rem,9vw,8rem)]">
+        <h1 className="display max-w-6xl text-[clamp(2.5rem,7.4vw,6.8rem)]">
           <SplitWords text={title} />
           {accent && (
             <>
               {" "}
-              <SplitWords text={accent} delay={0.15} wordClassName="serif pr-[0.05em] text-accent" />
+              <SplitWords text={accent} delay={0.15} wordClassName="serif pr-[0.04em] text-accent" />
             </>
           )}
         </h1>
@@ -73,8 +69,8 @@ export function CourseExplorer({ courses }: { courses: Course[] }) {
             <motion.div
               key={c.id}
               layout
-              initial={{ opacity: 0, scale: 0.95, filter: "blur(6px)" }}
-              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.5, ease: EASE }}
             >
@@ -86,7 +82,7 @@ export function CourseExplorer({ courses }: { courses: Course[] }) {
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-2xl font-semibold tracking-tight">{c.title}</h3>
-                  <p className="serif text-lg text-muted">{c.tagline}</p>
+                  <p className="text-[15px] text-muted">{c.tagline}</p>
                   <div className="mt-4 flex flex-wrap gap-1.5">
                     {[c.classLevel, c.duration, c.mode].filter(Boolean).map((t) => (
                       <span key={t} className="rounded-full bg-paper px-3 py-1 text-xs font-medium text-ink/70">{t}</span>
@@ -140,7 +136,7 @@ export function ResultsExplorer({ results }: { results: Result[] }) {
               <div className="p-4 md:p-5">
                 <p className="font-semibold tracking-tight">{r.name}</p>
                 <p className="text-sm text-muted">{r.exam} · {r.year}{r.score ? ` · ${r.score}` : ""}</p>
-                {r.quote && <p className="serif mt-3 hidden text-lg leading-snug text-ink/70 md:block">&ldquo;{r.quote}&rdquo;</p>}
+                {r.quote && <p className="mt-3 hidden text-[14px] leading-snug text-ink/70 md:block">&ldquo;{r.quote}&rdquo;</p>}
               </div>
             </motion.div>
           ))}
