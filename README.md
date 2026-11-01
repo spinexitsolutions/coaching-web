@@ -21,7 +21,7 @@ On first run the database (`data/db.json`) is seeded automatically with demo con
 | Feature | Details |
 | --- | --- |
 | Intro animation | Full-screen word sequence + 000→100 counter, then a curved two-layer curtain wipe. Words, duration, colour, on/off and "once per visit" are set from the admin. |
-| Dynamic-Island navbar | Black floating pill that morphs (spring layout animation) from a full bar → compact island with live status ticker and a scroll-progress ring → an expanded menu card with a featured course. |
+| Split navbar | Three floating pieces — logo chip, a segmented link rail with a sliding green indicator (follows hover, rests on the active page), and an action cluster (call · enrol · menu). The rail tucks away on scroll down and returns on scroll up; a gold reading-progress line runs along the top. Menu opens as a full-screen panel growing out of the menu button, with a live image preview for each link. |
 | Hero | Bento-grid hero: headline tile with gold underline sweep, live classroom photo window (Ken-Burns slideshow + "in class now" ticker), rolling AIR rank board, social-proof tile — tiles assemble one by one and parallax on scroll. |
 | Scroll effects | Manifesto paragraph that lights up word-by-word, horizontal-scroll program carousel (pinned), sticky stacking testimonials, parallax gallery columns, giant footer wordmark. |
 | Sections | Exam marquee, stats bento with counters, features bento (AI doubt demo, parent app, etc.), results & toppers, faculty, batches with seat bars, scholarship countdown, notices + blog, gallery, FAQ, demo-class form. |
