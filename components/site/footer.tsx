@@ -87,7 +87,7 @@ export function Footer({ settings, courses }: { settings: Settings; courses: { t
       </div>
 
       <div className="relative select-none overflow-hidden" aria-hidden>
-        <motion.div style={{ y }} className="flex justify-center whitespace-nowrap px-2 text-[clamp(4rem,21vw,20rem)] wide font-[800] leading-[0.8] tracking-[-0.06em] text-white">
+        <motion.div style={{ y }} className="flex justify-center whitespace-nowrap px-2 text-[clamp(4rem,21vw,20rem)] font-semibold leading-[0.8] tracking-[-0.06em] text-white">
           {letters.map((l, i) => (
             <motion.span
               key={i}

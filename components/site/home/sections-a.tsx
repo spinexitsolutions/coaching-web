@@ -12,27 +12,18 @@ import { Counter, Reveal, SectionHeading, EASE } from "../motion";
 /* ───────────────────────── Marquee ───────────────────────── */
 
 export function ExamMarquee() {
-  const row1 = ["JEE Main", "JEE Advanced", "NEET UG", "BITSAT", "Olympiads", "NTSE", "CUET", "CBSE Boards"];
-  const row2 = ["Small batches", "Weekly tests", "1:1 mentorship", "Doubt desk", "Parent app", "Printed modules", "Scholarships"];
-  const Tape = ({ items, reverse, className, star }: { items: string[]; reverse?: boolean; className: string; star: string }) => (
-    <div className={cn("marquee-pause flex overflow-hidden py-4 md:py-5", className)}>
-      <div className={cn("flex shrink-0 items-center", reverse ? "animate-marquee-reverse" : "animate-marquee")} style={{ ["--marquee-duration" as string]: "38s" }}>
-        {[...items, ...items, ...items, ...items].map((t, i) => (
-          <span key={i} className="flex items-center">
-            <span className="wide whitespace-nowrap px-5 text-[clamp(1.4rem,3.2vw,2.6rem)] font-[760] uppercase tracking-[-0.03em]">{t}</span>
-            <span className={cn("text-xl", star)}>✱</span>
-          </span>
-        ))}
-      </div>
-    </div>
-  );
+  const items = ["JEE Main", "JEE Advanced", "NEET UG", "BITSAT", "Olympiads", "NTSE", "CUET", "CBSE Boards"];
   return (
-    <section id="marquee" className="relative overflow-hidden py-16 md:py-24" aria-label="Exams we prepare for">
-      <div className="relative -mx-[5%] -rotate-[3deg]">
-        <Tape items={row1} className="bg-accent2 text-ink" star="text-accent" />
-      </div>
-      <div className="relative -mx-[5%] -mt-6 rotate-[2deg] md:-mt-8">
-        <Tape items={row2} reverse className="bg-ink text-white" star="text-accent2" />
+    <section id="marquee" className="mx-auto max-w-[1440px] px-3 md:px-5" aria-label="Exams we prepare for">
+      <div className="marquee-pause mask-fade-x flex overflow-hidden border-y border-line py-6">
+        <div className="animate-marquee flex shrink-0 items-center" style={{ ["--marquee-duration" as string]: "42s" }}>
+          {[...items, ...items, ...items, ...items].map((t, i) => (
+            <span key={i} className="flex items-center">
+              <span className="whitespace-nowrap px-7 text-[clamp(1.25rem,2.4vw,1.9rem)] font-medium tracking-[-0.03em] text-ink/80">{t}</span>
+              <span className="size-1.5 rounded-full bg-accent2" />
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

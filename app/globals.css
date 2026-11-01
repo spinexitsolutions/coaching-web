@@ -17,12 +17,12 @@
 }
 
 :root {
-  --paper: #f2f2ee;
-  --ink: #0b0b10;
-  --accent: #2f3cff;
-  --accent-2: #d4ff3a;
-  --muted: #6b6b75;
-  --line: rgb(11 11 16 / 0.1);
+  --paper: #f4f1ea;
+  --ink: #15171a;
+  --accent: #1f4d3f;
+  --accent-2: #e8b04b;
+  --muted: #6f6c66;
+  --line: rgb(21 23 26 / 0.1);
   --card: #ffffff;
 }
 
@@ -64,20 +64,18 @@ body {
 .serif {
   font-family: var(--font-sans);
   font-style: normal;
-  font-stretch: 125%;
-  font-weight: 760;
-  letter-spacing: -0.035em;
+  font-weight: inherit;
 }
 
 .display {
-  font-stretch: 125%;
-  letter-spacing: -0.045em;
-  line-height: 0.98;
-  font-weight: 760;
+  font-stretch: 104%;
+  letter-spacing: -0.042em;
+  line-height: 1;
+  font-weight: 640;
 }
 
 .wide {
-  font-stretch: 125%;
+  font-stretch: 104%;
 }
 
 .eyebrow {

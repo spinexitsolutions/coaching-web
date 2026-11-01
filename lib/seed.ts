@@ -125,13 +125,13 @@ export function createSeed(): Database {
         facebook: "https://facebook.com",
         linkedin: "https://linkedin.com",
       },
-      theme: { accent: "#2F3CFF", accent2: "#D4FF3A", ink: "#0B0B10", paper: "#F2F2EE" },
+      theme: { accent: "#1F4D3F", accent2: "#E8B04B", ink: "#15171A", paper: "#F4F1EA" },
       intro: {
         enabled: true,
         words: ["Focus.", "Discipline.", "Clarity.", "Results."],
         duration: 2.6,
         oncePerSession: true,
-        background: "#0B0B10",
+        background: "#15171A",
       },
       announcement: {
         enabled: true,
@@ -150,9 +150,9 @@ export function createSeed(): Database {
         secondaryCta: "Explore programs",
         secondaryHref: "/courses",
         images: [
-          u("1524178232363-1fb2b075b655", 1600),
-          u("1571260899304-425eee4c7efc", 1000),
-          u("1635070041078-e363dbe005cb", 1000),
+          u("1524178232363-1fb2b075b655", 1400),
+          u("1522202176988-66273c2fd55f", 1400),
+          u("1606761568499-6d2451b23c66", 1400),
         ],
       },
       manifesto: {
@@ -234,7 +234,7 @@ export function createSeed(): Database {
           "A rigorous two-year program that builds JEE-level problem solving from first principles. Integrated with your Class 11 & 12 boards, weekly tests and 1:1 mentorship.",
         highlights: ["6 days/week classroom", "Weekly JEE-pattern tests", "1:1 mentor every fortnight", "Doubt desk till 9 PM", "Printed study modules"],
         syllabus: ["Mechanics & Waves", "Electrodynamics & Optics", "Physical Chemistry", "Organic Chemistry", "Inorganic Chemistry", "Calculus", "Algebra & Coordinate Geometry", "Modern Physics"],
-        color: "#2F3CFF",
+        color: "#1F4D3F",
         featured: true,
         published: true,
       },

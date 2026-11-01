@@ -23,8 +23,8 @@ const TABS = [
 type Tab = (typeof TABS)[number]["id"];
 
 const PRESETS = [
-  { name: "Cobalt & Lime", accent: "#2F3CFF", accent2: "#D4FF3A", ink: "#0B0B10", paper: "#F2F2EE" },
-  { name: "Forest & Mint", accent: "#0F5132", accent2: "#B8F5D0", ink: "#0A120E", paper: "#F1F3EF" },
+  { name: "Forest & Gold", accent: "#1F4D3F", accent2: "#E8B04B", ink: "#15171A", paper: "#F4F1EA" },
+  { name: "Navy & Sand", accent: "#1C2B4A", accent2: "#D9B88F", ink: "#111520", paper: "#F3F1EC" },
   { name: "Plum & Peach", accent: "#5B2A86", accent2: "#FFC9A8", ink: "#120B16", paper: "#F5F2F4" },
   { name: "Ink & Coral", accent: "#111827", accent2: "#FF7A59", ink: "#0B0B0F", paper: "#F3F2EF" },
   { name: "Teal & Sun", accent: "#006D77", accent2: "#FFD23F", ink: "#081315", paper: "#F1F4F3" },
@@ -185,9 +185,9 @@ export function SettingsEditor({ initial }: { initial: Settings }) {
               {F("hero", { key: "primaryHref", label: "Primary button link", type: "text" })}
               {F("hero", { key: "secondaryCta", label: "Secondary button", type: "text" })}
               {F("hero", { key: "secondaryHref", label: "Secondary button link", type: "text" })}
-              {[0].map((i) => (
-                <div key={i} className={i === 0 ? "md:col-span-2" : ""}>
-                  <span className="mb-1.5 block text-[12px] font-medium text-black/55">Background photo (shown as a duotone behind the hero)</span>
+              {[0, 1, 2].map((i) => (
+                <div key={i} className="md:col-span-2">
+                  <span className="mb-1.5 block text-[12px] font-medium text-black/55">{`Hero photo ${i + 1} (slideshow in the photo tile)`}</span>
                   <ImageInput value={s.hero.images[i] || ""} onChange={(v) => up("hero", { images: Object.assign([...s.hero.images], { [i]: v }) })} />
                 </div>
               ))}

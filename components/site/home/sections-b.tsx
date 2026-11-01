@@ -238,7 +238,7 @@ export function Scholarship({ settings }: { settings: Settings }) {
       <Reveal className="relative mx-auto max-w-[1400px] overflow-hidden rounded-[36px] bg-accent px-6 py-16 text-white md:px-16 md:py-24">
         <motion.div
           aria-hidden
-          className="absolute -right-24 -top-24 size-[420px] rounded-full border-[56px] border-accent2/90 md:size-[560px]"
+          className="absolute -right-32 -top-32 size-[420px] rounded-full border border-accent2/50 shadow-[0_0_0_60px_rgb(255_255_255/0.03),0_0_0_120px_rgb(255_255_255/0.025)] md:size-[560px]"
           initial={{ scale: 0.6, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
