@@ -76,7 +76,7 @@ function makeLeads(): Lead[] {
     const fn = firstNames[i % firstNames.length];
     const ln = lastNames[(i * 7) % lastNames.length];
     const status = statuses[(i * 5) % statuses.length];
-    const created = daysAgo(Math.floor((i * 13) % 29), 9 + (i % 9));
+    const created = daysAgo(Math.floor(Math.pow(((i * 37) % 46) / 46, 1.35) * 29), 9 + (i % 9));
     const course = courseNames[(i * 5) % courseNames.length];
     leads.push({
       id: `lead_${(1000 + i).toString(36)}${i}`,

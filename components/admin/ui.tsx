@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { createContext, useCallback, useContext, useRef, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { Check, ImagePlus, Loader2, Plus, Upload, X, AlertCircle, GripVertical } from "lucide-react";
 import type { Field } from "@/lib/collections";
 import { IMAGE_LIBRARY } from "@/lib/seed";
@@ -305,6 +305,12 @@ export function FieldInput({ field, value, onChange }: { field: Field; value: un
 /* ───────── Slide-over drawer ───────── */
 
 export function Drawer({ open, onClose, title, children, footer, wide }: { open: boolean; onClose: () => void; title: string; children: React.ReactNode; footer?: React.ReactNode; wide?: boolean }) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, onClose]);
   return (
     <AnimatePresence>
       {open && (

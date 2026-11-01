@@ -9,7 +9,8 @@ export const metadata = { title: "Admin", robots: { index: false } };
 export default async function PanelLayout({ children }: { children: React.ReactNode }) {
   const db = await readDb();
   const session = await verifySessionToken((await cookies()).get(SESSION_COOKIE)?.value);
-  const theme = `:root{--accent:${db.settings.theme.accent};--accent-2:${db.settings.theme.accent2};}`;
+  const t = db.settings.theme;
+  const theme = `:root{--accent:${t.accent};--accent-2:${t.accent2};--ink:${t.ink};--paper:${t.paper};}`;
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: theme }} />

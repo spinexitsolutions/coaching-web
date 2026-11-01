@@ -25,7 +25,16 @@ export function LeadsCRM({ initial, courses }: { initial: Lead[]; courses: strin
   const [view, setView] = useState<"table" | "board">("table");
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [openId, setOpenId] = useState<string | null>(params.get("lead"));
-  const [creating, setCreating] = useState(false);
+  const [creating, setCreating] = useState(params.get("new") === "1");
+
+  // Deep links from the ⌘K palette / top bar while already on this page.
+  useEffect(() => {
+    const id = params.get("lead");
+    if (id) setOpenId(id);
+    if (params.get("new") === "1") setCreating(true);
+    const st = params.get("status");
+    if (st) setStatus(st);
+  }, [params]);
 
   useEffect(() => {
     try {

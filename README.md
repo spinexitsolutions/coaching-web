@@ -31,7 +31,9 @@ On first run the database (`data/db.json`) is seeded automatically with demo con
 
 ## Admin panel
 
-- **Dashboard** — KPIs (leads, weekly growth, conversion, revenue), 14/30-day inflow chart, pipeline, sources, top programs, follow-ups due, latest enquiries.
+- **Shell** — deep-green collapsible sidebar (icon-only mode is remembered), sticky top bar, and a **⌘K / Ctrl+K command palette** to search leads by name/phone, jump to any page or run quick actions (add lead, post notice, change theme…).
+
+- **Dashboard** — bento layout: greeting tile with conversion ring, revenue tile with sparkline, animated area chart of lead inflow (14/30 days, hover tooltip), admission funnel, follow-up timeline, lead-source donut, top programs, latest enquiries and content shortcuts.
 - **Leads & CRM** — table and drag-and-drop **kanban** views, search & filters, bulk status change/delete, CSV export, lead drawer with call/WhatsApp/email, pipeline stage, owner, follow-up date, deal value, notes timeline, manual lead entry.
 - **CMS** — courses, batches, faculty, results, testimonials, blog posts, notice board, FAQs, gallery, downloads: create / edit / duplicate / delete / publish-hide / drag to reorder. Images via URL, curated Unsplash library, or upload.
 - **Site settings** — brand & contact, theme colours (presets + live preview), intro animation (with preview), hero text & images, navbar links (drag to reorder), homepage sections (reorder + toggle), stats, announcement, popup, scholarship date, manifesto, SEO.
